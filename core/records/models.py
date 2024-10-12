@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 
+
 # Create your models here.
 class Department(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -11,6 +12,13 @@ class Department(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Doctor(models.Model):
+    doctor_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=255)
+    department_id = models.ForeignKey(Department, on_delete=models.CASCADE)
+
 
 class Patient(models.Model):
     record_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
