@@ -1,0 +1,6 @@
+# Ignore Pipfiles
+
+Pipfile
+Pipfile.lock
+
+db.splite3
